@@ -35,7 +35,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setView()
-        
     }
 
     override func viewDidLayoutSubviews() {
@@ -60,6 +59,23 @@ class ViewController: UIViewController {
         
     }
     
+    func addTimeObserver() {
+        
+        let interval = CMTime(seconds: 0.5, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
+        
+        player.addPeriodicTimeObserver(forInterval: interval, queue: DispatchQueue.main) {[weak self] (time) in
+            
+            guard let currentItem = self?.player.currentItem else { return }
+            
+            self?.timeSlider.maximumValue = Float(currentItem.duration.seconds)
+            self?.timeSlider.minimumValue = 0
+            self?.timeSlider.value = Float(currentItem.currentTime().seconds)
+            
+            self?.currentTimeLbl.text = self?.getTimeString(time: currentItem.currentTime())
+        }
+        
+    }
+    
     func playVideo(address: String) {
         
         guard let url = URL(string: address) else {
@@ -70,7 +86,9 @@ class ViewController: UIViewController {
         }
     
         player = AVPlayer(url: url)
-        
+       
+        addTimeObserver()
+
         playerLayer = AVPlayerLayer(player: player)
         playerLayer.videoGravity = .resize
         
@@ -137,8 +155,10 @@ class ViewController: UIViewController {
     }
     
     @IBAction func timeSlider(_ sender: UISlider) {
+        
+          player.seek(to: CMTimeMake(Int64(sender.value * 1000), 1000))
+        
     }
-    
     
     func typeChanging() {
         
@@ -189,6 +209,7 @@ class ViewController: UIViewController {
             
         }
     }
+    
     
 }
 

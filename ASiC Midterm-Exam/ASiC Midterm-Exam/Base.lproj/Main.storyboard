@@ -105,7 +105,7 @@
                                 <rect key="frame" x="64" y="489" width="247" height="31"/>
                                 <color key="tintColor" red="0.4549019608" green="0.21176470589999999" blue="0.72549019609999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <action selector="timeSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="kRX-4P-JOw"/>
+                                    <action selector="timeSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="TIa-UE-vdO"/>
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZb-kn-cJV">
