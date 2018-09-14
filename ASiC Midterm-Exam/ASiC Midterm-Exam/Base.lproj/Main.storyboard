@@ -19,9 +19,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="naC-iH-bEQ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="目前尚無影片可播放" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BQU-on-Ggg">
+                                <rect key="frame" x="109" y="291" width="156" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.86274509803921573" green="0.86274509803921573" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="naC-iH-bEQ">
                                 <rect key="frame" x="0.0" y="196" width="375" height="211"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="naC-iH-bEQ" secondAttribute="height" multiplier="16:9" id="KWJ-bu-J2l"/>
                                 </constraints>
@@ -32,12 +38,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="目前尚無影片可播放" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BQU-on-Ggg">
-                                <rect key="frame" x="109.5" y="291.5" width="156" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.86274509803921573" green="0.86274509803921573" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="91i-Kj-a9U">
                                 <rect key="frame" x="285" y="15" width="80" height="30"/>
                                 <constraints>
@@ -59,6 +59,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="24" id="r5g-VW-X3R"/>
                                         </constraints>
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button" image="btn_volume_up"/>
                                         <state key="selected" image="btn_volume_off"/>
                                         <connections>
@@ -70,6 +71,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="24" id="1tf-rn-cGd"/>
                                         </constraints>
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button" image="btn_play_rewind"/>
                                         <connections>
                                             <action selector="backwardBot:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Yf1-YU-Y8K"/>
@@ -81,6 +83,7 @@
                                             <constraint firstAttribute="height" constant="24" id="BR5-eB-bq5"/>
                                             <constraint firstAttribute="width" constant="24" id="U4E-U1-fgP"/>
                                         </constraints>
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button" image="btn_play"/>
                                         <state key="selected" image="btn_stop"/>
                                         <connections>
@@ -92,6 +95,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="24" id="sF6-47-UCY"/>
                                         </constraints>
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button" image="btn_play_forward"/>
                                         <connections>
                                             <action selector="forwardPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kzk-iU-gIA"/>
@@ -102,6 +106,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="24" id="0US-ke-29c"/>
                                         </constraints>
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button" image="btn_fullScreen"/>
                                     </button>
                                 </subviews>

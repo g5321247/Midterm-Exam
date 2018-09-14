@@ -11,7 +11,6 @@
 		C8CFF346214B43D200E05CB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CFF345214B43D200E05CB6 /* AppDelegate.swift */; };
 		C8CFF348214B43D200E05CB6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CFF347214B43D200E05CB6 /* ViewController.swift */; };
 		C8CFF34B214B43D200E05CB6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8CFF349214B43D200E05CB6 /* Main.storyboard */; };
-		C8CFF34D214B43D900E05CB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8CFF34C214B43D900E05CB6 /* Assets.xcassets */; };
 		C8CFF350214B43D900E05CB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8CFF34E214B43D900E05CB6 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -21,7 +20,6 @@
 		C8CFF345214B43D200E05CB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8CFF347214B43D200E05CB6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C8CFF34A214B43D200E05CB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C8CFF34C214B43D900E05CB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C8CFF34F214B43D900E05CB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C8CFF351214B43D900E05CB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -60,7 +58,6 @@
 				C8CFF347214B43D200E05CB6 /* ViewController.swift */,
 				C8CFF349214B43D200E05CB6 /* Main.storyboard */,
 				C8747E91214B58D300FFF48E /* VideoManager.swift */,
-				C8CFF34C214B43D900E05CB6 /* Assets.xcassets */,
 				C8CFF34E214B43D900E05CB6 /* LaunchScreen.storyboard */,
 				C8CFF351214B43D900E05CB6 /* Info.plist */,
 			);
@@ -126,7 +123,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8CFF350214B43D900E05CB6 /* LaunchScreen.storyboard in Resources */,
-				C8CFF34D214B43D900E05CB6 /* Assets.xcassets in Resources */,
 				C8CFF34B214B43D200E05CB6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

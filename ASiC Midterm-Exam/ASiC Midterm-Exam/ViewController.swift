@@ -21,6 +21,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var timeSlider: UISlider!
     @IBOutlet weak var soundBot: UIButton!
     
+    
+    
     var player: AVPlayer!
     var playerLayer: AVPlayerLayer!
     
@@ -48,6 +50,7 @@ class ViewController: UIViewController {
         coordinator.animate(alongsideTransition: { (context) in
         }) { (context) in
             
+            guard self.playerLayer != nil else { return }
             self.playerLayer.frame.size = self.videoView.bounds.size
         }
     }
@@ -61,13 +64,16 @@ class ViewController: UIViewController {
             searchBot.isHidden = true
             searchTxF.isHidden = true
             
+            soundBot.imageView?.image?.withRenderingMode(.alwaysTemplate)
+        
+            
+            
         } else {
             
             UIApplication.shared.isStatusBarHidden = false
             navigationController?.isNavigationBarHidden = false
             searchBot.isHidden = false
             searchTxF.isHidden = false
-            
             
             
         }
@@ -79,12 +85,10 @@ class ViewController: UIViewController {
         
         guard  searchTxF.text != "" else {
             
-            videoView.isHidden = true
             return
         }
         
         playVideo(address: searchTxF.text!)
-        videoView.isHidden = false
         
     }
     
@@ -117,23 +121,27 @@ class ViewController: UIViewController {
         player = AVPlayer(url: url)
        
         addTimeObserver()
-
+        
         playerLayer = AVPlayerLayer(player: player)
         playerLayer.videoGravity = .resize
         
-        guard player.currentItem != nil else {
-
-            print("no current")
-            return
-        }
+        player.currentItem?.addObserver(self, forKeyPath: "duration", options: [.new, .initial], context: nil)
         
         player.currentItem?.addObserver(self, forKeyPath: "duration", options: [.new, .initial], context: nil)
         
+        videoView.backgroundColor = UIColor(displayP3Red: 0/255, green: 0/255, blue: 0/255, alpha: 1)
+
         player.play()
         
+//        guard player.currentItem?.status != .failed else {
+//
+//            videoView.backgroundColor = UIColor(displayP3Red: 255/255, green: 255/255, blue: 255/255, alpha: 0)
+//            return
+//        }
+
         playBot.isSelected = true
-        backgroundLbl.isHidden = true
         
+
         videoView.layer.addSublayer(playerLayer)
         playerLayer.frame = videoView.bounds
 
