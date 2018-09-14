@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,10 +19,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="naC-iH-bEQ">
-                                <rect key="frame" x="0.0" y="196" width="375" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="naC-iH-bEQ">
+                                <rect key="frame" x="0.0" y="196" width="375" height="211"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="naC-iH-bEQ" secondAttribute="height" multiplier="16:9" id="KWJ-bu-J2l"/>
+                                </constraints>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入欲播放影片網址" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gmQ-HN-iIj">
                                 <rect key="frame" x="10" y="15" width="265" height="30"/>
@@ -42,11 +45,27 @@
                                     <action selector="searchBot:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7GC-jZ-Si2"/>
                                 </connections>
                             </button>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ony-9y-6q5">
+                                <rect key="frame" x="106" y="517" width="118" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="目前尚無影片可播放" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BQU-on-Ggg">
+                                <rect key="frame" x="109.5" y="291" width="156" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.86274509803921573" green="0.86274509803921573" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="gmQ-HN-iIj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="2HA-Hp-0ii"/>
+                            <constraint firstItem="naC-iH-bEQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DP1-Bn-W0d"/>
+                            <constraint firstItem="BQU-on-Ggg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="FHx-hk-O7J"/>
+                            <constraint firstItem="naC-iH-bEQ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="HaZ-Mc-0QZ"/>
+                            <constraint firstItem="BQU-on-Ggg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KzH-0r-jNa"/>
                             <constraint firstItem="91i-Kj-a9U" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="MUY-ft-R8w"/>
+                            <constraint firstItem="naC-iH-bEQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ny1-Qo-G5Y"/>
+                            <constraint firstItem="naC-iH-bEQ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="SXV-Ep-tPZ"/>
                             <constraint firstItem="gmQ-HN-iIj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="twK-EB-d2C"/>
                             <constraint firstItem="91i-Kj-a9U" firstAttribute="leading" secondItem="gmQ-HN-iIj" secondAttribute="trailing" constant="10" id="yRy-zG-9Qe"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="91i-Kj-a9U" secondAttribute="trailing" constant="10" id="zB3-iN-yrp"/>
@@ -57,6 +76,7 @@
                     <connections>
                         <outlet property="searchBot" destination="91i-Kj-a9U" id="6Cm-Fu-FeX"/>
                         <outlet property="searchTxF" destination="gmQ-HN-iIj" id="RbO-p5-DgO"/>
+                        <outlet property="videoView" destination="naC-iH-bEQ" id="msV-l2-kvp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

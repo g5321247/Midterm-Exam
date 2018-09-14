@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C8747E92214B58D300FFF48E /* VideoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8747E91214B58D300FFF48E /* VideoManager.swift */; };
 		C8CFF346214B43D200E05CB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CFF345214B43D200E05CB6 /* AppDelegate.swift */; };
 		C8CFF348214B43D200E05CB6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CFF347214B43D200E05CB6 /* ViewController.swift */; };
 		C8CFF34B214B43D200E05CB6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8CFF349214B43D200E05CB6 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C8747E91214B58D300FFF48E /* VideoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoManager.swift; sourceTree = "<group>"; };
 		C8CFF342214B43D100E05CB6 /* ASiC Midterm-Exam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ASiC Midterm-Exam.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8CFF345214B43D200E05CB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8CFF347214B43D200E05CB6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 				C8CFF345214B43D200E05CB6 /* AppDelegate.swift */,
 				C8CFF347214B43D200E05CB6 /* ViewController.swift */,
 				C8CFF349214B43D200E05CB6 /* Main.storyboard */,
+				C8747E91214B58D300FFF48E /* VideoManager.swift */,
 				C8CFF34C214B43D900E05CB6 /* Assets.xcassets */,
 				C8CFF34E214B43D900E05CB6 /* LaunchScreen.storyboard */,
 				C8CFF351214B43D900E05CB6 /* Info.plist */,
@@ -137,6 +140,7 @@
 			files = (
 				C8CFF348214B43D200E05CB6 /* ViewController.swift in Sources */,
 				C8CFF346214B43D200E05CB6 /* AppDelegate.swift in Sources */,
+				C8747E92214B58D300FFF48E /* VideoManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
