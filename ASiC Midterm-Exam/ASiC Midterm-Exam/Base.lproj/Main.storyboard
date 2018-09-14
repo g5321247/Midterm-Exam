@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2h8-o4-dvy">
-    <device id="retina4_7" orientation="landscape">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -16,30 +16,30 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ASiC_Midterm_Exam" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="343"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="naC-iH-bEQ">
-                                <rect key="frame" x="0.0" y="-16" width="667" height="375"/>
+                                <rect key="frame" x="0.0" y="196" width="375" height="211"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="naC-iH-bEQ" secondAttribute="height" multiplier="16:9" id="KWJ-bu-J2l"/>
                                 </constraints>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入欲播放影片網址" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gmQ-HN-iIj">
-                                <rect key="frame" x="10" y="15" width="557" height="30"/>
+                                <rect key="frame" x="10" y="15" width="265" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="目前尚無影片可播放" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BQU-on-Ggg">
-                                <rect key="frame" x="255.5" y="161.5" width="156" height="20.5"/>
+                                <rect key="frame" x="109.5" y="291.5" width="156" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.86274509803921573" green="0.86274509803921573" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="91i-Kj-a9U">
-                                <rect key="frame" x="577" y="15" width="80" height="30"/>
+                                <rect key="frame" x="285" y="15" width="80" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="Eaq-1m-mCi"/>
                                 </constraints>
@@ -52,7 +52,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="JSC-k2-j63">
-                                <rect key="frame" x="193.5" y="289" width="280" height="24"/>
+                                <rect key="frame" x="47.5" y="549" width="280" height="24"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iKf-ej-cVe">
                                         <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
@@ -107,20 +107,20 @@
                                 </subviews>
                             </stackView>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ony-9y-6q5">
-                                <rect key="frame" x="64" y="273" width="539" height="31"/>
+                                <rect key="frame" x="64" y="489" width="247" height="31"/>
                                 <color key="tintColor" red="0.4549019608" green="0.21176470589999999" blue="0.72549019609999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="timeSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="TIa-UE-vdO"/>
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZb-kn-cJV">
-                                <rect key="frame" x="10" y="274.5" width="46" height="20.5"/>
+                                <rect key="frame" x="10" y="490.5" width="46" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zGD-uO-Ayt">
-                                <rect key="frame" x="611" y="275" width="46" height="20.5"/>
+                                <rect key="frame" x="319" y="491" width="46" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -133,12 +133,13 @@
                             <constraint firstItem="naC-iH-bEQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DP1-Bn-W0d"/>
                             <constraint firstItem="BQU-on-Ggg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="FHx-hk-O7J"/>
                             <constraint firstItem="naC-iH-bEQ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="HaZ-Mc-0QZ"/>
+                            <constraint firstAttribute="bottom" secondItem="JSC-k2-j63" secondAttribute="bottom" constant="10" id="I6i-Ru-TRN"/>
                             <constraint firstItem="BQU-on-Ggg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KzH-0r-jNa"/>
                             <constraint firstItem="91i-Kj-a9U" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="MUY-ft-R8w"/>
                             <constraint firstItem="naC-iH-bEQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ny1-Qo-G5Y"/>
                             <constraint firstItem="naC-iH-bEQ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="SXV-Ep-tPZ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zGD-uO-Ayt" secondAttribute="trailing" constant="10" id="Wgd-ru-IuH"/>
-                            <constraint firstItem="JSC-k2-j63" firstAttribute="bottom" secondItem="ony-9y-6q5" secondAttribute="bottom" constant="10" id="Wx3-a3-QNh"/>
+                            <constraint firstItem="JSC-k2-j63" firstAttribute="top" secondItem="ony-9y-6q5" secondAttribute="bottom" constant="10" id="Wx3-a3-QNh"/>
                             <constraint firstItem="ony-9y-6q5" firstAttribute="centerY" secondItem="qZb-kn-cJV" secondAttribute="centerY" constant="3.25" id="cKv-Ye-kec"/>
                             <constraint firstItem="qZb-kn-cJV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="dq6-RX-7mo"/>
                             <constraint firstItem="cte-2v-mrl" firstAttribute="top" secondItem="ony-9y-6q5" secondAttribute="bottom" constant="30" id="g0q-Hy-Swg"/>
@@ -153,17 +154,27 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="g0q-Hy-Swg"/>
+                                <exclude reference="yrK-c1-zWY"/>
+                                <exclude reference="I6i-Ru-TRN"/>
                                 <exclude reference="Wx3-a3-QNh"/>
+                                <exclude reference="g0q-Hy-Swg"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact-widthClass=compact">
                             <mask key="constraints">
+                                <include reference="I6i-Ru-TRN"/>
+                                <include reference="Wx3-a3-QNh"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="I6i-Ru-TRN"/>
                                 <include reference="Wx3-a3-QNh"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="constraints">
+                                <include reference="yrK-c1-zWY"/>
                                 <include reference="g0q-Hy-Swg"/>
                             </mask>
                         </variation>
@@ -191,7 +202,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2h8-o4-dvy" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="rjj-Nx-8Ku">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="32"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.2470588235" green="0.31764705879999999" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
