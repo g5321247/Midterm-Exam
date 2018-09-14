@@ -9,15 +9,25 @@
 import UIKit
 import AVFoundation
 
+enum PlayType {
+    
+    case play
+    case pause
+    
+}
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var searchBot: UIButton!
     @IBOutlet weak var searchTxF: UITextField!
-
+    @IBOutlet weak var videoView: UIView!
+    @IBOutlet weak var playBot: UIButton!
+    @IBOutlet weak var backgroundLbl : UILabel!
+    
     var player: AVPlayer!
     var playerLayer: AVPlayerLayer!
     
-    @IBOutlet weak var videoView: UIView!
+    var playType: PlayType = .play
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,13 +48,13 @@ class ViewController: UIViewController {
         guard  searchTxF.text != "" else {
             
             videoView.isHidden = true
+            playType = .pause
             return
         }
         
         playVideo(address: searchTxF.text!)
         playerLayer.frame = videoView.bounds
         videoView.isHidden = false
-        player.play()
         
     }
     
@@ -62,6 +72,8 @@ class ViewController: UIViewController {
         playerLayer = AVPlayerLayer(player: player)
         playerLayer.videoGravity = .resize
         
+        typeChanging()
+        
         videoView.layer.addSublayer(playerLayer)
     }
 
@@ -72,5 +84,34 @@ class ViewController: UIViewController {
         searchBot.layer.cornerRadius = 4
         
     }
+    
+    @IBAction func playBot(_ sender: UIButton) {
+        
+        typeChanging()
+        
+    }
+    
+    func typeChanging() {
+        
+        switch playType {
+            
+        case .play:
+            
+            playBot.imageView?.image = #imageLiteral(resourceName: "btn_stop")
+            backgroundLbl.isHidden = true
+            
+            player.play()
+            playType = .pause
+            
+        case .pause:
+            
+            playBot.imageView?.image = #imageLiteral(resourceName: "btn_play")
+            player.pause()
+            playType = .play
+            
+        }
+
+    }
+    
 }
 

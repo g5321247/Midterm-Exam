@@ -75,6 +75,9 @@
                                             <constraint firstAttribute="width" constant="24" id="U4E-U1-fgP"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="btn_play"/>
+                                        <connections>
+                                            <action selector="playBot:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mMz-mf-osR"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FhN-bX-s0Q">
                                         <rect key="frame" x="192" y="0.0" width="24" height="24"/>
@@ -135,6 +138,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Video Player" id="sJW-eX-9Wh"/>
                     <connections>
+                        <outlet property="backgroundLbl" destination="BQU-on-Ggg" id="uvX-1m-MwQ"/>
+                        <outlet property="playBot" destination="cte-2v-mrl" id="ScL-cM-h20"/>
                         <outlet property="searchBot" destination="91i-Kj-a9U" id="6Cm-Fu-FeX"/>
                         <outlet property="searchTxF" destination="gmQ-HN-iIj" id="RbO-p5-DgO"/>
                         <outlet property="videoView" destination="naC-iH-bEQ" id="msV-l2-kvp"/>
