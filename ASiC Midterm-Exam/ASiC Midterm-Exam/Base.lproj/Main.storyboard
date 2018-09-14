@@ -67,6 +67,9 @@
                                             <constraint firstAttribute="width" constant="24" id="1tf-rn-cGd"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="btn_play_rewind"/>
+                                        <connections>
+                                            <action selector="backwardBot:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Yf1-YU-Y8K"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cte-2v-mrl">
                                         <rect key="frame" x="128" y="0.0" width="24" height="24"/>
@@ -85,6 +88,9 @@
                                             <constraint firstAttribute="width" constant="24" id="sF6-47-UCY"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="btn_play_forward"/>
+                                        <connections>
+                                            <action selector="forwardPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kzk-iU-gIA"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jty-Eo-hZ4">
                                         <rect key="frame" x="256" y="0.0" width="24" height="24"/>
@@ -139,9 +145,11 @@
                     <navigationItem key="navigationItem" title="Video Player" id="sJW-eX-9Wh"/>
                     <connections>
                         <outlet property="backgroundLbl" destination="BQU-on-Ggg" id="uvX-1m-MwQ"/>
+                        <outlet property="currentTimeLbl" destination="qZb-kn-cJV" id="g14-gp-HYP"/>
                         <outlet property="playBot" destination="cte-2v-mrl" id="ScL-cM-h20"/>
                         <outlet property="searchBot" destination="91i-Kj-a9U" id="6Cm-Fu-FeX"/>
                         <outlet property="searchTxF" destination="gmQ-HN-iIj" id="RbO-p5-DgO"/>
+                        <outlet property="totalTimeLbl" destination="zGD-uO-Ayt" id="fQd-zn-UsK"/>
                         <outlet property="videoView" destination="naC-iH-bEQ" id="msV-l2-kvp"/>
                     </connections>
                 </viewController>

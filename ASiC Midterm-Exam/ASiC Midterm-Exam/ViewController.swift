@@ -23,6 +23,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var videoView: UIView!
     @IBOutlet weak var playBot: UIButton!
     @IBOutlet weak var backgroundLbl : UILabel!
+    @IBOutlet weak var currentTimeLbl: UILabel!
+    @IBOutlet weak var totalTimeLbl: UILabel!
+    
     
     var player: AVPlayer!
     var playerLayer: AVPlayerLayer!
@@ -53,7 +56,6 @@ class ViewController: UIViewController {
         }
         
         playVideo(address: searchTxF.text!)
-        playerLayer.frame = videoView.bounds
         videoView.isHidden = false
         
     }
@@ -72,9 +74,19 @@ class ViewController: UIViewController {
         playerLayer = AVPlayerLayer(player: player)
         playerLayer.videoGravity = .resize
         
+//        guard let duartion =  player.currentItem?.duration as? String else {
+//
+//            print("no duration")
+//            return
+//        }
+        
+//        currentTimeLbl.text = duartion
+        
         typeChanging()
         
         videoView.layer.addSublayer(playerLayer)
+        playerLayer.frame = videoView.bounds
+
     }
 
     func setView() {
@@ -88,8 +100,39 @@ class ViewController: UIViewController {
     @IBAction func playBot(_ sender: UIButton) {
         
         typeChanging()
+        player.currentItem?.duration
         
     }
+    
+    @IBAction func forwardPress(_ sender: UIButton) {
+        
+        guard let duartion = player.currentItem?.duration else {
+            return
+        }
+        
+        let currentTime = CMTimeGetSeconds(player.currentTime())
+        let newTime = currentTime + 10
+        
+        if newTime < (CMTimeGetSeconds(duartion) - 10) {
+            let time: CMTime = CMTimeMake(Int64(newTime * 1000), 1000)
+            player.seek(to: time)
+        }
+    }
+    
+    @IBAction func backwardBot(_ sender: UIButton) {
+        
+        let currentTime = CMTimeGetSeconds(player.currentTime())
+        var newTime = currentTime - 10
+        
+        if newTime < 0 {
+            newTime = 0
+        }
+        
+        let time: CMTime = CMTimeMake(Int64(newTime * 1000), 1000)
+        player.seek(to: time)
+
+    }
+    
     
     func typeChanging() {
         
