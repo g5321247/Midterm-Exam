@@ -68,7 +68,6 @@ class ViewController: UIViewController {
         
     }
     
-    
     @IBAction func searchBot(_ sender: UIButton) {
         
         guard  searchTxF.text != "" else {
@@ -125,7 +124,7 @@ class ViewController: UIViewController {
         
         player.play()
         
-        playBot.imageView?.image = #imageLiteral(resourceName: "btn_stop")
+        playBot.isSelected = true
         backgroundLbl.isHidden = true
         
         videoView.layer.addSublayer(playerLayer)
@@ -147,17 +146,18 @@ class ViewController: UIViewController {
             return
         }
         
+        sender.isSelected = !sender.isSelected
+        
         if sender.isSelected {
-            
-            player.pause()
-            
-        } else {
             
             player.play()
             
+        } else {
+            
+            player.pause()
+            
         }
         
-        sender.isSelected = !sender.isSelected
 
     }
     
