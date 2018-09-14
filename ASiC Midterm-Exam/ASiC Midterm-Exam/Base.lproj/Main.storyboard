@@ -60,6 +60,9 @@
                                             <constraint firstAttribute="width" constant="24" id="r5g-VW-X3R"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="btn_volume_up"/>
+                                        <connections>
+                                            <action selector="soundBot:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GHe-v1-6Vl"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U4y-sk-cYe">
                                         <rect key="frame" x="64" y="0.0" width="24" height="24"/>
@@ -78,6 +81,7 @@
                                             <constraint firstAttribute="width" constant="24" id="U4E-U1-fgP"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="btn_play"/>
+                                        <state key="selected" image="btn_stop"/>
                                         <connections>
                                             <action selector="playBot:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mMz-mf-osR"/>
                                         </connections>
@@ -153,6 +157,7 @@
                         <outlet property="playBot" destination="cte-2v-mrl" id="ScL-cM-h20"/>
                         <outlet property="searchBot" destination="91i-Kj-a9U" id="6Cm-Fu-FeX"/>
                         <outlet property="searchTxF" destination="gmQ-HN-iIj" id="RbO-p5-DgO"/>
+                        <outlet property="soundBot" destination="iKf-ej-cVe" id="5Qv-zk-X6D"/>
                         <outlet property="timeSlider" destination="ony-9y-6q5" id="zMU-jm-Zob"/>
                         <outlet property="totalTimeLbl" destination="zGD-uO-Ayt" id="fQd-zn-UsK"/>
                         <outlet property="videoView" destination="naC-iH-bEQ" id="msV-l2-kvp"/>
@@ -190,6 +195,7 @@
         <image name="btn_play" width="12" height="12"/>
         <image name="btn_play_forward" width="12" height="12"/>
         <image name="btn_play_rewind" width="12" height="12"/>
+        <image name="btn_stop" width="12" height="12"/>
         <image name="btn_volume_up" width="12" height="12"/>
     </resources>
 </document>

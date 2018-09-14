@@ -9,13 +9,6 @@
 import UIKit
 import AVFoundation
 
-enum PlayType {
-    
-    case play
-    case pause
-    
-}
-
 class ViewController: UIViewController {
 
     @IBOutlet weak var searchBot: UIButton!
@@ -26,11 +19,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var currentTimeLbl: UILabel!
     @IBOutlet weak var totalTimeLbl: UILabel!
     @IBOutlet weak var timeSlider: UISlider!
+    @IBOutlet weak var soundBot: UIButton!
     
     var player: AVPlayer!
     var playerLayer: AVPlayerLayer!
-    
-    var playType: PlayType = .pause
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +42,6 @@ class ViewController: UIViewController {
         guard  searchTxF.text != "" else {
             
             videoView.isHidden = true
-            playType = .pause
             return
         }
         
@@ -92,13 +83,12 @@ class ViewController: UIViewController {
         playerLayer = AVPlayerLayer(player: player)
         playerLayer.videoGravity = .resize
         
-//        guard let duartion =  player.currentItem?.duration as? String else {
-//
-//            print("no duration")
-//            return
-//        }
+        guard player.currentItem != nil else {
+
+            print("no current")
+            return
+        }
         
-//        currentTimeLbl.text = duartion
         player.currentItem?.addObserver(self, forKeyPath: "duration", options: [.new, .initial], context: nil)
         
         player.play()
@@ -121,11 +111,29 @@ class ViewController: UIViewController {
     
     @IBAction func playBot(_ sender: UIButton) {
         
-        typeChanging()
+        guard player != nil else {
+            return
+        }
+        
+        if sender.isSelected {
+            
+            player.play()
+            
+        } else {
+            
+            player.pause()
+            
+        }
+        
+        sender.isSelected = !sender.isSelected
         
     }
     
     @IBAction func forwardPress(_ sender: UIButton) {
+        
+        guard player != nil else {
+            return
+        }
         
         guard let duartion = player.currentItem?.duration else {
             return
@@ -141,6 +149,10 @@ class ViewController: UIViewController {
     }
     
     @IBAction func backwardBot(_ sender: UIButton) {
+        
+        guard player != nil else {
+            return
+        }
         
         let currentTime = CMTimeGetSeconds(player.currentTime())
         var newTime = currentTime - 10
@@ -158,28 +170,6 @@ class ViewController: UIViewController {
         
           player.seek(to: CMTimeMake(Int64(sender.value * 1000), 1000))
         
-    }
-    
-    func typeChanging() {
-        
-        switch playType {
-            
-        case .play:
-            
-            playBot.imageView?.image = #imageLiteral(resourceName: "btn_stop")
-            backgroundLbl.isHidden = true
-            
-            player.play()
-            playType = .pause
-            
-        case .pause:
-            
-            playBot.imageView?.image = #imageLiteral(resourceName: "btn_play")
-            player.pause()
-            playType = .play
-            
-        }
-
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -208,6 +198,12 @@ class ViewController: UIViewController {
             return String(format: "%02i:%02i", mins,seconds)
             
         }
+    }
+    
+    @IBAction func soundBot(_ sender: UIButton) {
+        
+        
+        
     }
     
     
