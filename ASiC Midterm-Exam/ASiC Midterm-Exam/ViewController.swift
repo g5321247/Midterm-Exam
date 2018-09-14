@@ -44,10 +44,15 @@ class ViewController: UIViewController {
         
         super.viewWillTransition(to: size, with: coordinator)
         rotateView()
+        
+        coordinator.animate(alongsideTransition: { (context) in
+        }) { (context) in
+            
+            self.playerLayer.frame.size = self.videoView.bounds.size
+        }
     }
 
     func rotateView() {
-        
         
         if UIDevice.current.orientation.isLandscape {
             
@@ -62,6 +67,8 @@ class ViewController: UIViewController {
             navigationController?.isNavigationBarHidden = false
             searchBot.isHidden = false
             searchTxF.isHidden = false
+            
+            
             
         }
 
