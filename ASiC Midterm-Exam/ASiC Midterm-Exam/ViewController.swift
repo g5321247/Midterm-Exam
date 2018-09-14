@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var backgroundLbl : UILabel!
     @IBOutlet weak var currentTimeLbl: UILabel!
     @IBOutlet weak var totalTimeLbl: UILabel!
-    
+    @IBOutlet weak var timeSlider: UISlider!
     
     var player: AVPlayer!
     var playerLayer: AVPlayerLayer!
@@ -131,6 +131,9 @@ class ViewController: UIViewController {
         let time: CMTime = CMTimeMake(Int64(newTime * 1000), 1000)
         player.seek(to: time)
 
+    }
+    
+    @IBAction func timeSlider(_ sender: UISlider) {
     }
     
     
