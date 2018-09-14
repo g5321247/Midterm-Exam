@@ -107,20 +107,20 @@
                                 </subviews>
                             </stackView>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ony-9y-6q5">
-                                <rect key="frame" x="64" y="229" width="539" height="31"/>
+                                <rect key="frame" x="64" y="273" width="539" height="31"/>
                                 <color key="tintColor" red="0.4549019608" green="0.21176470589999999" blue="0.72549019609999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="timeSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="TIa-UE-vdO"/>
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZb-kn-cJV">
-                                <rect key="frame" x="10" y="230.5" width="46" height="20.5"/>
+                                <rect key="frame" x="10" y="274.5" width="46" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zGD-uO-Ayt">
-                                <rect key="frame" x="611" y="231" width="46" height="20.5"/>
+                                <rect key="frame" x="611" y="275" width="46" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -138,6 +138,7 @@
                             <constraint firstItem="naC-iH-bEQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ny1-Qo-G5Y"/>
                             <constraint firstItem="naC-iH-bEQ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="SXV-Ep-tPZ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zGD-uO-Ayt" secondAttribute="trailing" constant="10" id="Wgd-ru-IuH"/>
+                            <constraint firstItem="JSC-k2-j63" firstAttribute="bottom" secondItem="ony-9y-6q5" secondAttribute="bottom" constant="10" id="Wx3-a3-QNh"/>
                             <constraint firstItem="ony-9y-6q5" firstAttribute="centerY" secondItem="qZb-kn-cJV" secondAttribute="centerY" constant="3.25" id="cKv-Ye-kec"/>
                             <constraint firstItem="qZb-kn-cJV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="dq6-RX-7mo"/>
                             <constraint firstItem="cte-2v-mrl" firstAttribute="top" secondItem="ony-9y-6q5" secondAttribute="bottom" constant="30" id="g0q-Hy-Swg"/>
@@ -150,6 +151,22 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="91i-Kj-a9U" secondAttribute="trailing" constant="10" id="zB3-iN-yrp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="g0q-Hy-Swg"/>
+                                <exclude reference="Wx3-a3-QNh"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="Wx3-a3-QNh"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="g0q-Hy-Swg"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Video Player" id="sJW-eX-9Wh"/>
                     <connections>
