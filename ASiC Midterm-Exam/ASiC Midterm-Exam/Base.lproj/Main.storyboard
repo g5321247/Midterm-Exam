@@ -60,6 +60,7 @@
                                             <constraint firstAttribute="width" constant="24" id="r5g-VW-X3R"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="btn_volume_up"/>
+                                        <state key="selected" image="btn_volume_off"/>
                                         <connections>
                                             <action selector="soundBot:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GHe-v1-6Vl"/>
                                         </connections>
@@ -196,6 +197,7 @@
         <image name="btn_play_forward" width="12" height="12"/>
         <image name="btn_play_rewind" width="12" height="12"/>
         <image name="btn_stop" width="12" height="12"/>
+        <image name="btn_volume_off" width="12" height="12"/>
         <image name="btn_volume_up" width="12" height="12"/>
     </resources>
 </document>

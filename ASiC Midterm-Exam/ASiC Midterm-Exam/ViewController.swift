@@ -25,8 +25,11 @@ class ViewController: UIViewController {
     var playerLayer: AVPlayerLayer!
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         setView()
+        rotateView()
+
     }
 
     override func viewDidLayoutSubviews() {
@@ -37,6 +40,35 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
 
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        
+        super.viewWillTransition(to: size, with: coordinator)
+        rotateView()
+    }
+
+    func rotateView() {
+        
+        
+        if UIDevice.current.orientation.isLandscape {
+            
+            UIApplication.shared.isStatusBarHidden = true
+            navigationController?.isNavigationBarHidden = true
+            searchBot.isHidden = true
+            searchTxF.isHidden = true
+            
+        } else {
+            
+            UIApplication.shared.isStatusBarHidden = false
+            navigationController?.isNavigationBarHidden = false
+            searchBot.isHidden = false
+            searchTxF.isHidden = false
+            
+        }
+
+        
+    }
+    
+    
     @IBAction func searchBot(_ sender: UIButton) {
         
         guard  searchTxF.text != "" else {
@@ -117,16 +149,16 @@ class ViewController: UIViewController {
         
         if sender.isSelected {
             
-            player.play()
+            player.pause()
             
         } else {
             
-            player.pause()
+            player.play()
             
         }
         
         sender.isSelected = !sender.isSelected
-        
+
     }
     
     @IBAction func forwardPress(_ sender: UIButton) {
@@ -202,7 +234,17 @@ class ViewController: UIViewController {
     
     @IBAction func soundBot(_ sender: UIButton) {
         
+        sender.isSelected = !sender.isSelected
         
+        if sender.isSelected {
+            
+            player.isMuted = true
+            
+        } else {
+            
+            player.isMuted = false
+            
+        }
         
     }
     
