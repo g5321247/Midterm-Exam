@@ -10,14 +10,29 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    
+    @IBOutlet weak var searchBot: UIButton!
+    @IBOutlet weak var searchTxF: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setView()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 
-
+    @IBAction func searchBot(_ sender: UIButton) {
+    }
+    
+    
+    func setView() {
+       
+        searchBot.layer.borderWidth = 1.0
+        searchBot.layer.borderColor = UIColor.lightGray.cgColor
+        searchBot.layer.cornerRadius = 4
+        
+    }
 }
 
