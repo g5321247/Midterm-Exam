@@ -30,12 +30,12 @@ class ViewController: UIViewController {
     var player: AVPlayer!
     var playerLayer: AVPlayerLayer!
     
-    var playType: PlayType = .play
+    var playType: PlayType = .pause
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setView()
-
+        
     }
 
     override func viewDidLayoutSubviews() {
@@ -68,7 +68,7 @@ class ViewController: UIViewController {
             return
             
         }
-        
+    
         player = AVPlayer(url: url)
         
         playerLayer = AVPlayerLayer(player: player)
@@ -81,8 +81,12 @@ class ViewController: UIViewController {
 //        }
         
 //        currentTimeLbl.text = duartion
+        player.currentItem?.addObserver(self, forKeyPath: "duration", options: [.new, .initial], context: nil)
         
-        typeChanging()
+        player.play()
+        
+        playBot.imageView?.image = #imageLiteral(resourceName: "btn_stop")
+        backgroundLbl.isHidden = true
         
         videoView.layer.addSublayer(playerLayer)
         playerLayer.frame = videoView.bounds
@@ -100,7 +104,6 @@ class ViewController: UIViewController {
     @IBAction func playBot(_ sender: UIButton) {
         
         typeChanging()
-        player.currentItem?.duration
         
     }
     
@@ -157,6 +160,34 @@ class ViewController: UIViewController {
             
         }
 
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        
+        if keyPath == "duration", let duration = player.currentItem?.duration.seconds, duration > 0.0 {
+            
+            totalTimeLbl.text = getTimeString(time: player.currentItem!.duration)
+            
+        }
+    }
+    
+    func getTimeString(time: CMTime) -> String {
+        
+        let totalSecond = CMTimeGetSeconds(time)
+        
+        let hours = Int(totalSecond / 3600)
+        let mins = Int(totalSecond / 60) % 60
+        let seconds = Int(totalSecond.truncatingRemainder(dividingBy: 60))
+        
+        if hours > 0 {
+            
+            return String(format: "%i:%02i:%02i:", hours,mins,seconds)
+            
+        } else {
+            
+            return String(format: "%02i:%02i", mins,seconds)
+            
+        }
     }
     
 }
