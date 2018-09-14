@@ -22,13 +22,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setView()
-        playVideo(address: "https://s3-ap-northeast-1.amazonaws.com/mid-exam/Video/taeyeon.mp4")
-        player.play()
+
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        playerLayer.frame = videoView.bounds
     }
     
     override func didReceiveMemoryWarning() {
@@ -36,6 +34,18 @@ class ViewController: UIViewController {
     }
 
     @IBAction func searchBot(_ sender: UIButton) {
+        
+        guard  searchTxF.text != "" else {
+            
+            videoView.isHidden = true
+            return
+        }
+        
+        playVideo(address: searchTxF.text!)
+        playerLayer.frame = videoView.bounds
+        videoView.isHidden = false
+        player.play()
+        
     }
     
     func playVideo(address: String) {
