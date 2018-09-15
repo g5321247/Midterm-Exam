@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2h8-o4-dvy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2h8-o4-dvy">
     <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -59,7 +58,8 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="24" id="r5g-VW-X3R"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="btn_volume_up"/>
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" image="btn_volume_up"/>
                                         <state key="selected" image="btn_volume_off"/>
                                         <connections>
                                             <action selector="soundBot:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GHe-v1-6Vl"/>
@@ -71,7 +71,7 @@
                                             <constraint firstAttribute="width" constant="24" id="1tf-rn-cGd"/>
                                         </constraints>
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Button" image="btn_play_rewind"/>
+                                        <state key="normal" image="btn_play_rewind"/>
                                         <connections>
                                             <action selector="backwardBot:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Yf1-YU-Y8K"/>
                                         </connections>
@@ -83,7 +83,7 @@
                                             <constraint firstAttribute="width" constant="24" id="U4E-U1-fgP"/>
                                         </constraints>
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Button" image="btn_play"/>
+                                        <state key="normal" image="btn_play"/>
                                         <state key="selected" image="btn_stop"/>
                                         <connections>
                                             <action selector="playBot:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mMz-mf-osR"/>
@@ -95,7 +95,7 @@
                                             <constraint firstAttribute="width" constant="24" id="sF6-47-UCY"/>
                                         </constraints>
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Button" image="btn_play_forward"/>
+                                        <state key="normal" image="btn_play_forward"/>
                                         <connections>
                                             <action selector="forwardPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kzk-iU-gIA"/>
                                         </connections>
@@ -105,9 +105,11 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="24" id="0US-ke-29c"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="tintColor" red="0.99972747093023251" green="0.99972747093023251" blue="0.99972747093023251" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Button" image="btn_fullScreen"/>
+                                        <state key="normal" image="btn_fullScreen"/>
+                                        <connections>
+                                            <action selector="fullSize:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Oq2-3N-UC8"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <variation key="heightClass=compact-widthClass=compact">
@@ -128,7 +130,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zGD-uO-Ayt">
-                                <rect key="frame" x="611" y="271" width="46" height="20.5"/>
+                                <rect key="frame" x="611" y="270.5" width="46" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -189,8 +191,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Video Player" id="sJW-eX-9Wh"/>
                     <connections>
+                        <outlet property="backBot" destination="U4y-sk-cYe" id="Fze-Bb-axi"/>
                         <outlet property="backgroundLbl" destination="BQU-on-Ggg" id="uvX-1m-MwQ"/>
                         <outlet property="currentTimeLbl" destination="qZb-kn-cJV" id="g14-gp-HYP"/>
+                        <outlet property="forwardBot" destination="FhN-bX-s0Q" id="Ilf-Gd-CdM"/>
+                        <outlet property="fullSzieBot" destination="Jty-Eo-hZ4" id="lb1-Qe-UJa"/>
                         <outlet property="playBot" destination="cte-2v-mrl" id="ScL-cM-h20"/>
                         <outlet property="searchBot" destination="91i-Kj-a9U" id="6Cm-Fu-FeX"/>
                         <outlet property="searchTxF" destination="gmQ-HN-iIj" id="RbO-p5-DgO"/>

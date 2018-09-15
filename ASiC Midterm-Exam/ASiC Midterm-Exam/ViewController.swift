@@ -21,6 +21,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var timeSlider: UISlider!
     @IBOutlet weak var soundBot: UIButton!
     
+    @IBOutlet weak var fullSzieBot: UIButton!
+    @IBOutlet weak var forwardBot: UIButton!
+    @IBOutlet weak var backBot: UIButton!
     
     
     var player: AVPlayer!
@@ -64,25 +67,41 @@ class ViewController: UIViewController {
             searchBot.isHidden = true
             searchTxF.isHidden = true
             
-            #imageLiteral(resourceName: "btn_volume_off").withRenderingMode(.alwaysTemplate)
-            #imageLiteral(resourceName: "btn_play_rewind").withRenderingMode(.alwaysTemplate)
-            #imageLiteral(resourceName: "btn_play").withRenderingMode(.alwaysTemplate)
-            #imageLiteral(resourceName: "btn_fullScreen_exit").withRenderingMode(.alwaysTemplate)
-            #imageLiteral(resourceName: "btn_stop").withRenderingMode(.alwaysTemplate)
-            #imageLiteral(resourceName: "btn_volume_up").withRenderingMode(.alwaysTemplate)
-            #imageLiteral(resourceName: "btn_fullScreen").withRenderingMode(.alwaysTemplate)
-            #imageLiteral(resourceName: "btn_play_forward").withRenderingMode(.alwaysTemplate)
+            // 無法使用
             
-            playBot.setImage(#imageLiteral(resourceName: "btn_play"), for: .normal)
-            playBot.imageView?.tintColor = UIColor.white
+//            #imageLiteral(resourceName: "btn_volume_off").withRenderingMode(.alwaysTemplate)
+//            #imageLiteral(resourceName: "btn_play_rewind").withRenderingMode(.alwaysTemplate)
+//            #imageLiteral(resourceName: "btn_play").withRenderingMode(.alwaysTemplate)
+//            #imageLiteral(resourceName: "btn_fullScreen_exit").withRenderingMode(.alwaysTemplate)
+//            #imageLiteral(resourceName: "btn_stop").withRenderingMode(.alwaysTemplate)
+//            #imageLiteral(resourceName: "btn_volume_up").withRenderingMode(.alwaysTemplate)
+//            #imageLiteral(resourceName: "btn_fullScreen").withRenderingMode(.alwaysTemplate)
+//            #imageLiteral(resourceName: "btn_play_forward").withRenderingMode(.alwaysTemplate)
+        
+            playBot.tintColor = UIColor.white
+            soundBot.tintColor = UIColor.white
+            backBot.tintColor = UIColor.white
+            forwardBot.tintColor = UIColor.white
+            fullSzieBot.tintColor = UIColor.white
+            
+            videoView.isHidden = false
             
         } else {
+            
             
             UIApplication.shared.isStatusBarHidden = false
             navigationController?.isNavigationBarHidden = false
             searchBot.isHidden = false
             searchTxF.isHidden = false
             
+            playBot.tintColor = UIColor.black
+            soundBot.tintColor = UIColor.black
+            backBot.tintColor = UIColor.black
+            forwardBot.tintColor = UIColor.black
+            fullSzieBot.tintColor = UIColor.black
+            
+            videoView.isHidden = true
+
         }
 
         
@@ -268,6 +287,8 @@ class ViewController: UIViewController {
         
     }
     
+    @IBAction func fullSize(_ sender: UIButton) {
+    }
     
 }
 
