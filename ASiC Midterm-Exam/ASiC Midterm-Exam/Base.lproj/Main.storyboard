@@ -199,6 +199,7 @@
                         <outlet property="playBot" destination="cte-2v-mrl" id="ScL-cM-h20"/>
                         <outlet property="searchBot" destination="91i-Kj-a9U" id="6Cm-Fu-FeX"/>
                         <outlet property="searchTxF" destination="gmQ-HN-iIj" id="RbO-p5-DgO"/>
+                        <outlet property="sizeConstrait" destination="I6i-Ru-TRN" id="YK3-2X-UT1"/>
                         <outlet property="soundBot" destination="iKf-ej-cVe" id="5Qv-zk-X6D"/>
                         <outlet property="timeSlider" destination="ony-9y-6q5" id="zMU-jm-Zob"/>
                         <outlet property="totalTimeLbl" destination="zGD-uO-Ayt" id="fQd-zn-UsK"/>

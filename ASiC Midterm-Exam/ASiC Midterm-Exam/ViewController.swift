@@ -24,8 +24,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var fullSzieBot: UIButton!
     @IBOutlet weak var forwardBot: UIButton!
     @IBOutlet weak var backBot: UIButton!
+    @IBOutlet weak var sizeConstrait: NSLayoutConstraint!
     
-    
+    var isTaping: Bool = false
     var player: AVPlayer!
     var playerLayer: AVPlayerLayer!
     
@@ -86,6 +87,11 @@ class ViewController: UIViewController {
             
             videoView.isHidden = false
             
+            let tap = UITapGestureRecognizer(target: self, action: #selector (handleTap(sender:)))
+            
+            tap.delegate = self as? UIGestureRecognizerDelegate
+            videoView.addGestureRecognizer(tap)
+            
         } else {
             
             
@@ -143,8 +149,10 @@ class ViewController: UIViewController {
             return
             
         }
-    
-        player = AVPlayer(url: url)
+        
+        let playerItem = AVPlayerItem.init(url: url)
+        
+        player = AVPlayer(playerItem: playerItem)
        
         addTimeObserver()
         
@@ -288,6 +296,21 @@ class ViewController: UIViewController {
     }
     
     @IBAction func fullSize(_ sender: UIButton) {
+    }
+    
+    @objc func handleTap(sender: UITapGestureRecognizer? = nil) {
+        
+        isTaping = !isTaping
+        
+        playBot.isHidden = isTaping
+        soundBot.isHidden = isTaping
+        backBot.isHidden = isTaping
+        forwardBot.isHidden = isTaping
+        fullSzieBot.isHidden = isTaping
+        totalTimeLbl.isHidden = isTaping
+        currentTimeLbl.isHidden = isTaping
+        timeSlider.isHidden = isTaping
+        
     }
     
 }
