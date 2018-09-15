@@ -64,9 +64,17 @@ class ViewController: UIViewController {
             searchBot.isHidden = true
             searchTxF.isHidden = true
             
-            soundBot.imageView?.image?.withRenderingMode(.alwaysTemplate)
-        
+            #imageLiteral(resourceName: "btn_volume_off").withRenderingMode(.alwaysTemplate)
+            #imageLiteral(resourceName: "btn_play_rewind").withRenderingMode(.alwaysTemplate)
+            #imageLiteral(resourceName: "btn_play").withRenderingMode(.alwaysTemplate)
+            #imageLiteral(resourceName: "btn_fullScreen_exit").withRenderingMode(.alwaysTemplate)
+            #imageLiteral(resourceName: "btn_stop").withRenderingMode(.alwaysTemplate)
+            #imageLiteral(resourceName: "btn_volume_up").withRenderingMode(.alwaysTemplate)
+            #imageLiteral(resourceName: "btn_fullScreen").withRenderingMode(.alwaysTemplate)
+            #imageLiteral(resourceName: "btn_play_forward").withRenderingMode(.alwaysTemplate)
             
+            playBot.setImage(#imageLiteral(resourceName: "btn_play"), for: .normal)
+            playBot.imageView?.tintColor = UIColor.white
             
         } else {
             
@@ -74,7 +82,6 @@ class ViewController: UIViewController {
             navigationController?.isNavigationBarHidden = false
             searchBot.isHidden = false
             searchTxF.isHidden = false
-            
             
         }
 
@@ -133,12 +140,6 @@ class ViewController: UIViewController {
 
         player.play()
         
-//        guard player.currentItem?.status != .failed else {
-//
-//            videoView.backgroundColor = UIColor(displayP3Red: 255/255, green: 255/255, blue: 255/255, alpha: 0)
-//            return
-//        }
-
         playBot.isSelected = true
         
 
@@ -248,6 +249,10 @@ class ViewController: UIViewController {
     }
     
     @IBAction func soundBot(_ sender: UIButton) {
+        
+        guard player != nil else {
+            return
+        }
         
         sender.isSelected = !sender.isSelected
         
