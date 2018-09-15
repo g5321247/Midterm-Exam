@@ -140,7 +140,7 @@ class ViewController: UIViewController {
         player.addPeriodicTimeObserver(forInterval: interval, queue: DispatchQueue.main) {[weak self] (time) in
             
             guard let currentItem = self?.player.currentItem else { return }
-            
+                        
             self?.timeSlider.maximumValue = Float(currentItem.duration.seconds)
             self?.timeSlider.minimumValue = 0
             self?.timeSlider.value = Float(currentItem.currentTime().seconds)
@@ -159,16 +159,14 @@ class ViewController: UIViewController {
             
         }
         
-        let playerItem = AVPlayerItem.init(url: url)
-        
-        player = AVPlayer(playerItem: playerItem)
+        let asset = AVURLAsset(url: url)
+        let playItem = AVPlayerItem(asset: asset)
+        player = AVPlayer(playerItem: playItem)
        
         addTimeObserver()
         
         playerLayer = AVPlayerLayer(player: player)
         playerLayer.videoGravity = .resize
-        
-        player.currentItem?.addObserver(self, forKeyPath: "duration", options: [.new, .initial], context: nil)
         
         player.currentItem?.addObserver(self, forKeyPath: "duration", options: [.new, .initial], context: nil)
         
@@ -178,7 +176,6 @@ class ViewController: UIViewController {
         
         playBot.isSelected = true
         
-
         videoView.layer.addSublayer(playerLayer)
         playerLayer.frame = videoView.bounds
 
