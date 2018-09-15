@@ -27,6 +27,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var sizeConstrait: NSLayoutConstraint!
     
     var isTaping: Bool = false
+    var isRoating: Bool = false
     var player: AVPlayer!
     var playerLayer: AVPlayerLayer!
     
@@ -46,6 +47,10 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
 
+    override var shouldAutorotate: Bool {
+        return true
+    }
+    
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         
         super.viewWillTransition(to: size, with: coordinator)
@@ -84,6 +89,8 @@ class ViewController: UIViewController {
             backBot.tintColor = UIColor.white
             forwardBot.tintColor = UIColor.white
             fullSzieBot.tintColor = UIColor.white
+            currentTimeLbl.textColor = UIColor.white
+            totalTimeLbl.textColor = UIColor.white
             
             videoView.isHidden = false
             
@@ -105,6 +112,8 @@ class ViewController: UIViewController {
             backBot.tintColor = UIColor.black
             forwardBot.tintColor = UIColor.black
             fullSzieBot.tintColor = UIColor.black
+            currentTimeLbl.textColor = UIColor.black
+            totalTimeLbl.textColor = UIColor.black
             
             videoView.isHidden = true
 
@@ -243,7 +252,11 @@ class ViewController: UIViewController {
     
     @IBAction func timeSlider(_ sender: UISlider) {
         
-          player.seek(to: CMTimeMake(Int64(sender.value * 1000), 1000))
+        guard player != nil else {
+            return
+        }
+        
+        player.seek(to: CMTimeMake(Int64(sender.value * 1000), 1000))
         
     }
     
@@ -296,6 +309,23 @@ class ViewController: UIViewController {
     }
     
     @IBAction func fullSize(_ sender: UIButton) {
+        
+        isRoating = !isRoating
+        
+        
+        if isRoating {
+            
+            let value = UIInterfaceOrientation.landscapeLeft.rawValue
+            UIDevice.current.setValue(value, forKey: "orientation")
+
+            
+        } else {
+            
+            let value = UIInterfaceOrientation.portrait.rawValue
+            UIDevice.current.setValue(value, forKey: "orientation")
+
+        }
+        
     }
     
     @objc func handleTap(sender: UITapGestureRecognizer? = nil) {
