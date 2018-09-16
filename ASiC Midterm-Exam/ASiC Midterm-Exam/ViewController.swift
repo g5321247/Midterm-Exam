@@ -46,10 +46,6 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
-    override var shouldAutorotate: Bool {
-        return true
-    }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         
@@ -101,7 +97,6 @@ class ViewController: UIViewController {
             
         } else {
             
-            
             UIApplication.shared.isStatusBarHidden = false
             navigationController?.isNavigationBarHidden = false
             searchBot.isHidden = false
@@ -140,7 +135,8 @@ class ViewController: UIViewController {
         player.addPeriodicTimeObserver(forInterval: interval, queue: DispatchQueue.main) {[weak self] (time) in
             
             guard let currentItem = self?.player.currentItem else { return }
-                        
+            guard currentItem.duration.seconds > 0 else { return }
+            
             self?.timeSlider.maximumValue = Float(currentItem.duration.seconds)
             self?.timeSlider.minimumValue = 0
             self?.timeSlider.value = Float(currentItem.currentTime().seconds)
@@ -159,20 +155,22 @@ class ViewController: UIViewController {
             
         }
         
+        //重覆播放問題
+        
         let asset = AVURLAsset(url: url)
         let playItem = AVPlayerItem(asset: asset)
         player = AVPlayer(playerItem: playItem)
        
+        playItem.addObserver(self, forKeyPath: "status", options: NSKeyValueObservingOptions.new, context: nil)
+        
         addTimeObserver()
         
         playerLayer = AVPlayerLayer(player: player)
         playerLayer.videoGravity = .resize
         
-        player.currentItem?.addObserver(self, forKeyPath: "duration", options: [.new, .initial], context: nil)
+        player.currentItem?.addObserver(self, forKeyPath: "duration", options: [.new], context: nil)
         
         videoView.backgroundColor = UIColor(displayP3Red: 0/255, green: 0/255, blue: 0/255, alpha: 1)
-
-        player.play()
         
         playBot.isSelected = true
         
@@ -259,11 +257,30 @@ class ViewController: UIViewController {
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         
+        if  keyPath == "status" {
+            
+            switch player.currentItem!.status {
+                
+            case .readyToPlay:
+                
+                player.play()
+                
+                videoView.isHidden = false
+                
+            default:
+                
+                videoView.isHidden = true
+                break
+            }
+
+        }
+        
         if keyPath == "duration", let duration = player.currentItem?.duration.seconds, duration > 0.0 {
             
             totalTimeLbl.text = getTimeString(time: player.currentItem!.duration)
             
         }
+        
     }
     
     func getTimeString(time: CMTime) -> String {
@@ -309,13 +326,11 @@ class ViewController: UIViewController {
         
         isRoating = !isRoating
         
-        
         if isRoating {
             
             let value = UIInterfaceOrientation.landscapeLeft.rawValue
             UIDevice.current.setValue(value, forKey: "orientation")
 
-            
         } else {
             
             let value = UIInterfaceOrientation.portrait.rawValue
